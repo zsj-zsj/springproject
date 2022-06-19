@@ -14,5 +14,9 @@ service/service_edu/service_edu.iml
 service/service_oss/service_oss.iml
 service/service_oss/target
 service/service_oss/src/main/resources/application.yml
+service/service_video/target
+service/service_video/service_video.iml
+service/service_video/src/main/resources/application.yml
+微服务.txt
 
 

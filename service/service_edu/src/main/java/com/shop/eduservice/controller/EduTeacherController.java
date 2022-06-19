@@ -13,6 +13,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * <p>
@@ -34,12 +35,16 @@ public class EduTeacherController {
     @PostMapping("teacherList" )
     public Result teacherList(PageFunction page, @RequestBody(required = false) EduTeacherVO eduTeacherVO){
         QueryWrapper<EduTeacher> eduTeacherQueryWrapper = new QueryWrapper<>();
+//        eduTeacherQueryWrapper.select("name");    指定字段  select name from table
         if(!StringUtils.isEmpty(eduTeacherVO.getName())){
             eduTeacherQueryWrapper.like("name",eduTeacherVO.getName());
         }
         Page<EduTeacher> teacherPage = new Page<>(page.getCurrentPage(),page.getCurrentLimit());
         eduTeacherService.page(teacherPage,eduTeacherQueryWrapper);
         List<EduTeacher> records = teacherPage.getRecords();
+
+//        records.stream().map(EduTeacher::getName).collect(Collectors.toList()); = php的 array_column
+
         return Result.success().data("data",records).data("total",teacherPage.getTotal());
     }
 

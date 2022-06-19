@@ -4,7 +4,6 @@ package com.shop.eduservice.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.shop.eduservice.entity.EduCourse;
-import com.shop.eduservice.entity.EduTeacher;
 import com.shop.eduservice.service.EduCourseService;
 import com.shop.eduservice.vo.CourseInfoVO;
 import com.shop.eduservice.vo.PageFunction;
