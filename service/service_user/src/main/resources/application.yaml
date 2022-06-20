@@ -28,3 +28,10 @@ mybatis-plus:
   mapper-locations: classpath:com/shop/user/mapper/xml/*.xml
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+wechat:
+  open:
+    appid: appid
+    appsecret: appsecret
+    redirecturl: redirecturl

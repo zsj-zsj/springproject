@@ -23,12 +23,14 @@ public class VideoController {
     @Autowired
     private VideoService videoService;
 
+    //上传
     @PostMapping("uploadAliyunVideo")
     public Result uploadAliyunVideo(MultipartFile file) throws IOException {
         String id = videoService.uploadAliyunVideo(file);
         return Result.success().data("data",id);
     }
 
+    //单删
     @DeleteMapping("deleteAliyunVideo/{vid}")
     public Result uploadAliyunVideo(@PathVariable String vid) throws Exception {
         DefaultAcsClient client = AliyunVideoInit.aliyunVideoInit(ConstantVideoUtils.KEY_ID, ConstantVideoUtils.KEY_SECRET);
@@ -38,10 +40,19 @@ public class VideoController {
         return Result.success().data("data",httpResponse);
     }
 
+    //多删
     @DeleteMapping("deleteBatchVideo")
     public Result deleteBatchVideo(@RequestParam("idsList") List idsList) throws Exception {
         videoService.deleteBatchVideo(idsList);
         return Result.success();
     }
+
+    //获取播放凭证
+    @GetMapping("getPlayAuth/{vid}")
+    public Result getPlayAuth(@PathVariable String vid) throws Exception {
+        String playAuth = videoService.getPlayAuth(vid);
+        return Result.success().data("data",playAuth);
+    }
+
 
 }

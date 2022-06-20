@@ -10,4 +10,6 @@ public interface VideoService {
     String uploadAliyunVideo(MultipartFile file) throws IOException;
 
     void deleteBatchVideo(List ids) throws Exception;
+
+    String getPlayAuth(String vid) throws Exception;
 }
