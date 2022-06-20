@@ -24,7 +24,7 @@ public class Gen {
         AutoGenerator autoGenerator = new AutoGenerator();
         GlobalConfig globalConfig = new GlobalConfig();
         String projectPath = System.getProperty("user.dir");
-        globalConfig.setOutputDir("D:\\mydata\\springbootshop\\service\\service_edu" + "/src/main/java");
+        globalConfig.setOutputDir("D:\\mydata\\springproject\\service\\service_user" + "/src/main/java");
         globalConfig.setAuthor("ZSJ");
         globalConfig.setOpen(false);
         globalConfig.setFileOverride(false);
@@ -42,32 +42,32 @@ public class Gen {
         autoGenerator.setDataSource(dataSourceConfig);
 
         PackageConfig packageConfig = new PackageConfig();
-        packageConfig.setModuleName("eduservice");
+        packageConfig.setModuleName("user");
         packageConfig.setParent("com.shop");
         packageConfig.setEntity("entity");
         packageConfig.setMapper("mapper");
         packageConfig.setService("service");
         packageConfig.setController("controller");
 
-        InjectionConfig cfg = new InjectionConfig() {
-            @Override
-            public void initMap() {}
-        };
-        String templatePath = "/templates/mapper.xml.vm";// 带上.ftl/.vm标识模板引擎
-        List<FileOutConfig> focList = new ArrayList<>();
-        focList.add(new FileOutConfig(templatePath) {
-            @Override
-            public String outputFile(TableInfo tableInfo) {
-                // 自定义输出文件名
-                return projectPath + "/src/main/resources/mapper/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
-            }
-        });
-        cfg.setFileOutConfigList(focList);
-
-        autoGenerator.setCfg(cfg);
+//        InjectionConfig cfg = new InjectionConfig() {
+//            @Override
+//            public void initMap() {}
+//        };
+//        String templatePath = "/templates/mapper.xml.vm";// 带上.ftl/.vm标识模板引擎
+//        List<FileOutConfig> focList = new ArrayList<>();
+//        focList.add(new FileOutConfig(templatePath) {
+//            @Override
+//            public String outputFile(TableInfo tableInfo) {
+//                // 自定义输出文件名
+//                return projectPath + "/src/main/resources/mapper/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
+//            }
+//        });
+//        cfg.setFileOutConfigList(focList);
+//
+//        autoGenerator.setCfg(cfg);
 
         StrategyConfig strategy = new StrategyConfig();
-        strategy.setInclude("edu_chapter","edu_subject","edu_course_description");
+        strategy.setInclude("ucenter_member");
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setTablePrefix(packageConfig.getModuleName()+"_");
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);

@@ -17,6 +17,12 @@ service/service_oss/src/main/resources/application.yml
 service/service_video/target
 service/service_video/service_video.iml
 service/service_video/src/main/resources/application.yml
+service/service_cms/target
+service/service_cms/service_cms.iml
+service/service_message/target
+service/service_message/service_message.iml
+service/service_user/target
+service/service_user/service_user.iml
 微服务.txt
 
 
